@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
-import Login from './Login';
+import React, { Fragment, Component } from 'react';
+import Home from './Home';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <Login />
-      </div>
+      <Router>
+        <Fragment>
+          <Route path='/' exact component={Home} />
+        </Fragment>
+      </Router>
     );
   }
 }

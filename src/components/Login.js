@@ -6,7 +6,8 @@ import { connect } from 'react-redux';
 class Login extends Component {
 
   state = {
-    selectedUser: {}
+    selectedUser: null,
+    error: ''
   }
 
   componentDidMount() {
@@ -16,13 +17,21 @@ class Login extends Component {
   handleSelectUser = e => {
     const selectedUser = this.props.users[e.target.value]
     this.setState(() => ({
-      selectedUser
+      selectedUser,
+      error: ''
     }));
   }
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.dispatch(setAuthedUser(this.state.selectedUser))
+
+    if (this.state.selectedUser) {
+      this.props.dispatch(setAuthedUser(this.state.selectedUser));
+    } else {
+      this.setState(() => ({
+        error: 'Please select a user from the list'
+      }));
+    }
   }
 
   render() {
@@ -47,15 +56,19 @@ class Login extends Component {
           <button type='submit'>
             Login
           </button>
+          <div>
+            {this.state.error}
+          </div>
         </form>
       </div>
     )
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, authedUser }) {
   return {
-    users
+    users,
+    authedUser
   }
 }
 
