@@ -1,5 +1,6 @@
-import { _getUsers } from '../utils/_DATA';
+import { _getUsers, _getQuestions } from '../utils/_DATA';
 import { receiveUsers } from './users';
+import { receiveQuestions } from './questions';
 
 export function getInitialUsers() {
   return dispatch => {
@@ -7,4 +8,12 @@ export function getInitialUsers() {
       dispatch(receiveUsers(users));
     });
   };
+}
+
+export function getQuestions() {
+  return dispatch => {
+    return _getQuestions().then(questions => {
+      dispatch(receiveQuestions(questions));
+    });
+  }
 }

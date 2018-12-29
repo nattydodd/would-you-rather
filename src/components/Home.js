@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { getQuestions } from '../actions/shared';
 import Login from './Login';
 
 class Home extends Component {
+
+  componentDidMount() {
+    this.props.dispatch(getQuestions());
+  }
+
   render() {
     if (!this.props.authedUser) {
       return (
