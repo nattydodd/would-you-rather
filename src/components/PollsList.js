@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PollsList = (props) => {
   return (
@@ -6,7 +7,9 @@ const PollsList = (props) => {
       {props.polls.map(poll => (
         <tr key={poll.id}>
           <td>
-            {poll.id}
+            <Link to={`/questions/${poll.id}`}>
+              {poll.id}
+            </Link>
           </td>
         </tr>
       ))}

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { getInitialUsers } from '../actions/shared';
 import { setAuthedUser } from '../actions/authedUser';
 import { connect } from 'react-redux';
 
@@ -8,10 +7,6 @@ class Login extends Component {
   state = {
     selectedUser: null,
     error: ''
-  }
-
-  componentDidMount() {
-    this.props.dispatch(getInitialUsers())
   }
 
   handleSelectUser = e => {

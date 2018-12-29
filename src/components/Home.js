@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getQuestions } from '../actions/shared';
-import Login from './Login';
 import PollsList from './PollsList';
 
 class Home extends Component {
@@ -31,12 +30,6 @@ class Home extends Component {
   }
 
   render() {
-    if (!this.props.authedUser) {
-      return (
-        <Login />
-      )
-    }
-
     return (
       <div>
         <h1>Home</h1>

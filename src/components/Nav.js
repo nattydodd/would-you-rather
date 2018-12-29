@@ -32,9 +32,9 @@ class Nav extends Component {
           </li>
           {this.props.authedUser && (
             <li>
-              <a href='#' onClick={this.logout}>
+              <button onClick={this.logout}>
                 Logout
-              </a>
+              </button>
             </li>
           )}
         </ul>
