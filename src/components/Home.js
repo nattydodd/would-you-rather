@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getQuestions } from '../actions/shared';
 import PollsList from './PollsList';
 
 class Home extends Component {
@@ -58,8 +57,10 @@ class Home extends Component {
 function mapStateToProps({ authedUser, questions, users }) {
   return {
     authedUser,
-    questions,
-    users
+    users,
+    questions: Object.keys(questions)
+      .map(id => questions[id])
+      .sort((a, b) => b.timestamp + - a.timestamp)
   }
 }
 

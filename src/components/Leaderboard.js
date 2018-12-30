@@ -11,7 +11,7 @@ class Leaderboard extends Component {
           return (
             <div key={user.id}>
               <p>{user.name}</p>
-              <img width="35px" src={user.avatarURL} />
+              <img alt="User Avatar" width="35px" src={user.avatarURL} />
               <p>Questions Asked: {user.questions.length}</p>
               <p>Questions Answered: {Object.keys(user.answers).length}</p>
             </div>

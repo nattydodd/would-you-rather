@@ -32,7 +32,7 @@ class Question extends Component {
       <div>
         <h1>Would You Rather?</h1>
         <p>Posted By: {currentQuestion.author}</p>
-        <img width='30px' src={users[currentQuestion.author].avatarURL} />
+        <img width='30px' alt="User Avatar" src={users[currentQuestion.author].avatarURL} />
         <ol>
           {['optionOne', 'optionTwo'].map(option =>
             <AnswerOption
