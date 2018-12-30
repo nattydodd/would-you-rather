@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react';
 import Home from './Home';
 import Nav from './Nav';
 import Question from './Question';
+import Leaderboard from './Leaderboard';
 import Login from './Login';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -26,6 +27,7 @@ class App extends Component {
           <Nav />
           <Route path='/' exact component={Home} />
           <Route path='/questions/:id' component={Question} />
+          <Route path='/leaderboard' component={Leaderboard} />
         </Fragment>
       </Router>
     );
