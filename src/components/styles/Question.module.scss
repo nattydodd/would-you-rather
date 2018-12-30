@@ -1,0 +1,43 @@
+@import './shared.module';
+
+.container {
+  @include container;
+  background: $background-light;
+}
+
+.title {
+  @include h1;
+  margin-left: 25px;
+}
+
+.list {
+  padding: 0;
+}
+
+.votes {
+  color: $active;
+}
+
+.userData {
+  display: flex;
+  min-width: 250px;
+}
+
+.userImage {
+  height: 40px;
+  width: auto;
+  margin: 0 10px 0 0;
+}
+
+.userName {
+  width: 100%;
+}
+
+.button {
+  @include button;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}

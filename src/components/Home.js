@@ -27,17 +27,22 @@ class Home extends Component {
 
   render() {
     const { users, authedUser } = this.props;
+    const { showAnswered } = this.state;
     return (
-      <div className={styles.test}>
-        <h1>Home</h1>
-        <h3>Logged in as: {users[authedUser].name}</h3>
-        <table>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Home</h1>
+        <h3 className={styles.name}>Logged in as: {users[authedUser].name}</h3>
+        <table className={styles.table}>
           <thead>
-            <tr>
-              <th onClick={() => this.setState({ showAnswered: true })}>
+            <tr className={styles.tableHeadRow}>
+              <th
+                onClick={() => this.setState({ showAnswered: true })}
+                className={showAnswered === true ? styles.tableHeadTitleActive : styles.tableHeadTitle}>
                 Answered
               </th>
-              <th onClick={() => this.setState({ showAnswered: false })}>
+              <th
+                onClick={() => this.setState({ showAnswered: false })}
+                className={showAnswered === true ? styles.tableHeadTitle : styles.tableHeadTitleActive}>
                 Unanswered
               </th>
             </tr>

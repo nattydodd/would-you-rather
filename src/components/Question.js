@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AnswerOption from './AnswerOption';
 import { saveQuestionAnswer } from '../actions/shared';
+import styles from  './styles/Question.module.scss';
 
 class Question extends Component {
 
@@ -29,11 +30,9 @@ class Question extends Component {
     const totalVotes = currentQuestion.optionOne.votes.length + currentQuestion.optionTwo.votes.length
 
     return (
-      <div>
-        <h1>Would You Rather?</h1>
-        <p>Posted By: {currentQuestion.author}</p>
-        <img width='30px' alt="User Avatar" src={users[currentQuestion.author].avatarURL} />
-        <ol>
+      <div className={styles.container}>
+        <h1 className={styles.title}>Would You Rather...</h1>
+        <ol className={styles.list}>
           {['optionOne', 'optionTwo'].map(option =>
             <AnswerOption
               key={option}
@@ -52,6 +51,10 @@ class Question extends Component {
             />
           )}
         </ol>
+        <div className={styles.userData}>
+          <img className={styles.userImage} alt="User Avatar" src={users[currentQuestion.author].avatarURL} />
+          <p className={styles.userName}>Posted By: {currentQuestion.author}</p>
+        </div>
       </div>
     )
   }
