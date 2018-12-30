@@ -10,18 +10,17 @@ class Login extends Component {
   }
 
   handleSelectUser = e => {
-    const selectedUser = this.props.users[e.target.value]
-    this.setState(() => ({
-      selectedUser,
+    this.setState({
+      selectedUser: e.target.value,
       error: ''
-    }));
+    });
   }
 
   handleSubmit = e => {
     e.preventDefault();
 
     if (this.state.selectedUser) {
-      this.props.dispatch(setAuthedUser(this.state.selectedUser.id));
+      this.props.dispatch(setAuthedUser(this.state.selectedUser));
     } else {
       this.setState(() => ({
         error: 'Please select a user from the list'
@@ -42,7 +41,7 @@ class Login extends Component {
             {this.props.users && Object.keys(this.props.users).map(user => (
               <option
                 key={this.props.users[user].id}
-                value={user}
+                value={this.props.users[user].id}
               >
                 {this.props.users[user].name}
               </option>

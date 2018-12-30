@@ -9,10 +9,6 @@ class Home extends Component {
     showAnswered: true
   }
 
-  componentDidMount() {
-    this.props.dispatch(getQuestions());
-  }
-
   getAnsweredPolls() {
     const pollsArray = Object.keys(this.props.questions).map(key => this.props.questions[key])
     return pollsArray.filter(poll =>
