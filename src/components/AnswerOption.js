@@ -1,14 +1,19 @@
 import React from 'react';
 
 const AnswerOption = (props) => {
-  const { text, questionAnswered, votePercentage, userVoted } = props
+  const { text, questionAnswered, votePercentage, userVoted, vote, option } = props;
   return (
     <li>
       <p>{text}</p>
-      {questionAnswered &&
-        <p>Votes: {votePercentage}%</p>
+      {questionAnswered ?
+        <p>Votes: {votePercentage}%</p> :
+        <button onClick={() => vote(option)}>
+          VOTE
+        </button>
       }
-      <p>{userVoted && 'You Voted!'}</p>
+      <p>
+        {userVoted && 'You Voted!'}
+      </p>
     </li>
   )
 }

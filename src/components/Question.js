@@ -1,49 +1,45 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import AnswerOption from './AnswerOption';
+import { saveQuestionAnswer } from '../actions/shared';
 
 class Question extends Component {
-  state = {
-    question: {
-      optionOne: {
-        votes: []
-      },
-      optionTwo: {
-        votes: []
-      }
-    },
-    authorAvatar: '',
-    questionAnswered: false
-  }
 
-  componentDidMount() {
-    const currentQuestion = this.props.questions[this.props.match.params.id]
-
-    this.setState(() => ({
-      question: currentQuestion,
-      authorAvatar: this.props.users[currentQuestion.author].avatarURL,
-      questionAnswered: currentQuestion.optionOne.votes.includes(this.props.authedUser.id) ||
-        currentQuestion.optionTwo.votes.includes(this.props.authedUser.id),
-      totalVotes: currentQuestion.optionOne.votes.length + currentQuestion.optionTwo.votes.length
-    }));
+  vote = (option) => {
+    let answerObj = {
+      authedUser: this.props.authedUser.id,
+      qid: this.props.match.params.id,
+      answer: option
+    }
+    this.props.dispatch(saveQuestionAnswer(answerObj));
   }
 
   render() {
-    const { question, totalVotes, authorAvatar, questionAnswered } = this.state
+    const { users, authedUser } = this.props
+    const currentQuestion = this.props.questions[this.props.match.params.id];
+    const totalVotes = currentQuestion.optionOne.votes.length + currentQuestion.optionTwo.votes.length
+
     return (
       <div>
         <h1>Would You Rather?</h1>
-        <p>Posted By: {question.author}</p>
-        <img width='30px' src={authorAvatar} />
+        <p>Posted By: {currentQuestion.author}</p>
+        <img width='30px' src={users[currentQuestion.author].avatarURL} />
         <ol>
           {['optionOne', 'optionTwo'].map(option =>
             <AnswerOption
               key={option}
-              text={question[option].text}
-              questionAnswered={questionAnswered}
-              authedUser={this.props.authedUser.id}
-              votePercentage={Math.round(question[option].votes.length / totalVotes * 100)}
-              userVoted={question[option].votes.includes(this.props.authedUser.id)}
+              option={option}
+              text={currentQuestion[option].text}
+              questionAnswered={
+                currentQuestion.optionOne.votes.includes(authedUser.id) ||
+                currentQuestion.optionTwo.votes.includes(authedUser.id)
+              }
+              authedUser={authedUser.id}
+              votePercentage={
+                Math.round(currentQuestion[option].votes.length / totalVotes * 100)
+              }
+              userVoted={currentQuestion[option].votes.includes(authedUser.id)}
+              vote={this.vote}
             />
           )}
         </ol>
