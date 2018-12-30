@@ -21,7 +21,7 @@ class Login extends Component {
     e.preventDefault();
 
     if (this.state.selectedUser) {
-      this.props.dispatch(setAuthedUser(this.state.selectedUser));
+      this.props.dispatch(setAuthedUser(this.state.selectedUser.id));
     } else {
       this.setState(() => ({
         error: 'Please select a user from the list'

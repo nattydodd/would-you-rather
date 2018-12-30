@@ -7,7 +7,7 @@ class Question extends Component {
 
   vote = (option) => {
     let answerObj = {
-      authedUser: this.props.authedUser.id,
+      authedUser: this.props.authedUser,
       qid: this.props.match.params.id,
       answer: option
     }
@@ -40,14 +40,14 @@ class Question extends Component {
               option={option}
               text={currentQuestion[option].text}
               questionAnswered={
-                currentQuestion.optionOne.votes.includes(authedUser.id) ||
-                currentQuestion.optionTwo.votes.includes(authedUser.id)
+                currentQuestion.optionOne.votes.includes(authedUser) ||
+                currentQuestion.optionTwo.votes.includes(authedUser)
               }
-              authedUser={authedUser.id}
+              authedUser={authedUser}
               votePercentage={
                 Math.round(currentQuestion[option].votes.length / totalVotes * 100)
               }
-              userVoted={currentQuestion[option].votes.includes(authedUser.id)}
+              userVoted={currentQuestion[option].votes.includes(authedUser)}
               vote={this.vote}
             />
           )}

@@ -16,16 +16,16 @@ class Home extends Component {
   getAnsweredPolls() {
     const pollsArray = Object.keys(this.props.questions).map(key => this.props.questions[key])
     return pollsArray.filter(poll =>
-      poll.optionOne.votes.includes(this.props.authedUser.id) ||
-      poll.optionTwo.votes.includes(this.props.authedUser.id)
+      poll.optionOne.votes.includes(this.props.authedUser) ||
+      poll.optionTwo.votes.includes(this.props.authedUser)
     );
   }
 
   getUnansweredPolls() {
     const pollsArray = Object.keys(this.props.questions).map(key => this.props.questions[key])
     return pollsArray.filter(poll =>
-      !poll.optionOne.votes.includes(this.props.authedUser.id) &&
-      !poll.optionTwo.votes.includes(this.props.authedUser.id)
+      !poll.optionOne.votes.includes(this.props.authedUser) &&
+      !poll.optionTwo.votes.includes(this.props.authedUser)
     );
   }
 
