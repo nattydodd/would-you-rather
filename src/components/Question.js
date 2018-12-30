@@ -17,6 +17,15 @@ class Question extends Component {
   render() {
     const { users, authedUser } = this.props
     const currentQuestion = this.props.questions[this.props.match.params.id];
+
+    if (!currentQuestion) {
+      return (
+        <div>
+          404 NOT FOUND
+        </div>
+      )
+    }
+
     const totalVotes = currentQuestion.optionOne.votes.length + currentQuestion.optionTwo.votes.length
 
     return (
