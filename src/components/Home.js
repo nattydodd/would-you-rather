@@ -30,9 +30,11 @@ class Home extends Component {
   }
 
   render() {
+    const { users, authedUser } = this.props;
     return (
       <div>
         <h1>Home</h1>
+        <h3>Logged in as: {users[authedUser].name}</h3>
         <table>
           <thead>
             <tr>
@@ -57,10 +59,11 @@ class Home extends Component {
   }
 }
 
-function mapStateToProps({ authedUser, questions }) {
+function mapStateToProps({ authedUser, questions, users }) {
   return {
     authedUser,
-    questions
+    questions,
+    users
   }
 }
 
