@@ -5,17 +5,26 @@ import { saveQuestion } from '../actions/shared';
 class Add extends Component {
   state = {
     optionOne: '',
-    optionTwo: ''
+    optionTwo: '',
+    error: ''
   }
 
   handleChange = e => {
     this.setState({
-      [e.target.id]: e.target.value
+      [e.target.id]: e.target.value,
+      error: ''
     })
   }
 
   handleSubmit = e => {
     e.preventDefault();
+
+    if (!this.state.optionOne || !this.state.optionTwo) {
+      this.setState(() => ({
+        error: 'Please fill out both options'
+      }))
+      return;
+    }
 
     const question = {
       optionOneText: this.state.optionOne,
@@ -23,9 +32,10 @@ class Add extends Component {
       author: this.props.authedUser
     }
 
-    this.props.dispatch(saveQuestion(question)).then(() => {
-      this.props.history.push('/');
-    });
+    this.props.dispatch(saveQuestion(question))
+      .then(() => {
+        this.props.history.push('/');
+      });
   }
 
   render() {
@@ -48,6 +58,7 @@ class Add extends Component {
           <button type='submit'>
             Create Poll
           </button>
+          <p>{this.state.error}</p>
         </form>
       </div>
     )
