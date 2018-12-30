@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PollsList from './PollsList';
+import styles from './styles/Home.module.scss';
 
 class Home extends Component {
 
@@ -27,7 +28,7 @@ class Home extends Component {
   render() {
     const { users, authedUser } = this.props;
     return (
-      <div>
+      <div className={styles.test}>
         <h1>Home</h1>
         <h3>Logged in as: {users[authedUser].name}</h3>
         <table>
