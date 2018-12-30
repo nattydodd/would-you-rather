@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react';
+import LoadingBar from 'react-redux-loading'
 import Home from './Home';
 import Nav from './Nav';
 import Question from './Question';
@@ -19,12 +20,16 @@ class App extends Component {
   render() {
     if (!this.props.authedUser) {
       return (
-        <Login />
+        <Fragment>
+          <LoadingBar />
+          <Login />
+        </Fragment>
       )
     }
     return (
       <Router>
         <Fragment>
+          <LoadingBar />
           <Nav />
           <Route path='/' exact component={Home} />
           <Route path='/questions/:id' component={Question} />
