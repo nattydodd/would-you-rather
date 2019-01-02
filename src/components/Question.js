@@ -46,6 +46,7 @@ class Question extends Component {
               votePercentage={
                 Math.round(currentQuestion[option].votes.length / totalVotes * 100)
               }
+              voteCount={currentQuestion[option].votes.length}
               userVoted={currentQuestion[option].votes.includes(authedUser)}
               vote={this.vote}
             />

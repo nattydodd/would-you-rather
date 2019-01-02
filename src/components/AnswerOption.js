@@ -2,12 +2,24 @@ import React from 'react';
 import styles from  './styles/Question.module.scss';
 
 const AnswerOption = (props) => {
-  const { text, questionAnswered, votePercentage, userVoted, vote, option } = props;
+  const {
+    text,
+    questionAnswered,
+    votePercentage,
+    userVoted,
+    vote,
+    option,
+    voteCount
+  } = props;
   return (
     <li className={styles.option}>
       <p>...{text}?</p>
       {questionAnswered ?
-        <p className={styles.votes}>Votes: {votePercentage}%</p> :
+        <div>
+          <p className={styles.votes}>Votes: {votePercentage}%</p>
+          <p className={styles.votes}>Number of votes: {voteCount}</p>
+        </div>
+        :
         <div className={styles.buttonWrapper}>
           <button className={styles.button} onClick={() => vote(option)}>
             VOTE

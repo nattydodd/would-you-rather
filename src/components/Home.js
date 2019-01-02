@@ -6,7 +6,7 @@ import styles from './styles/Home.module.scss';
 class Home extends Component {
 
   state = {
-    showAnswered: true
+    showAnswered: false
   }
 
   getAnsweredPolls() {
@@ -36,14 +36,14 @@ class Home extends Component {
           <thead>
             <tr className={styles.tableHeadRow}>
               <th
-                onClick={() => this.setState({ showAnswered: true })}
-                className={showAnswered === true ? styles.tableHeadTitleActive : styles.tableHeadTitle}>
-                Answered
-              </th>
-              <th
                 onClick={() => this.setState({ showAnswered: false })}
                 className={showAnswered === true ? styles.tableHeadTitle : styles.tableHeadTitleActive}>
                 Unanswered
+              </th>
+              <th
+                onClick={() => this.setState({ showAnswered: true })}
+                className={showAnswered === true ? styles.tableHeadTitleActive : styles.tableHeadTitle}>
+                Answered
               </th>
             </tr>
           </thead>
