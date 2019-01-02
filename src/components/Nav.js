@@ -16,38 +16,42 @@ class Nav extends Component {
   render() {
     return (
       <ul className={styles.nav}>
-        <li className={styles.navItem}>
+        <li className={styles['nav-item']}>
           <NavLink
             to='/'
             exact
             activeClassName={styles.active}
-            className={styles.link}>
+            className={styles.link}
+          >
             Home
           </NavLink>
         </li>
-        <li className={styles.navItem}>
+        <li className={styles['nav-item']}>
           <NavLink
             to='/leaderboard'
             exact
             activeClassName={styles.active}
-            className={styles.link}>
+            className={styles.link}
+          >
             LeaderBoard
           </NavLink>
         </li>
-        <li className={styles.navItem}>
+        <li className={styles['nav-item']}>
           <NavLink
             to='/add'
             exact
             activeClassName={styles.active}
-            className={styles.link}>
+            className={styles.link}
+          >
             New Poll
           </NavLink>
         </li>
         {this.props.authedUser && (
-          <li className={styles.navItem}>
+          <li className={styles['nav-item']}>
             <button
               onClick={this.logout}
-              className={styles.link}>
+              className={styles.link}
+            >
               Logout
             </button>
           </li>

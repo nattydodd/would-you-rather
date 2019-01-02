@@ -46,15 +46,20 @@ class Add extends Component {
           Would You Rather?
         </h1>
         <form className={styles.form}
-          onSubmit={this.handleSubmit}>
-          <label htmlFor="optionOne">Option 1</label>
+          onSubmit={this.handleSubmit}
+        >
+          <label htmlFor="optionOne">
+            Option 1
+          </label>
           <input
             id="optionOne"
             className={styles.input}
             value={this.state.optionOne}
             onChange={this.handleChange}
           />
-          <label htmlFor="optionTwo">Option 2</label>
+          <label htmlFor="optionTwo">
+            Option 2
+          </label>
           <input
             id="optionTwo"
             className={styles.input}
@@ -65,7 +70,9 @@ class Add extends Component {
             type='submit'>
             Create Poll
           </button>
-          <p>{this.state.error}</p>
+          <p>
+            {this.state.error}
+          </p>
         </form>
       </div>
     )

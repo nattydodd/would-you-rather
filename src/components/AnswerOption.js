@@ -16,18 +16,25 @@ const AnswerOption = (props) => {
       <p>...{text}?</p>
       {questionAnswered ?
         <div>
-          <p className={styles.votes}>Votes: {votePercentage}%</p>
-          <p className={styles.votes}>Number of votes: {voteCount}</p>
+          <p className={styles.votes}>
+            Votes: {votePercentage}%
+          </p>
+          <p className={styles.votes}>
+            Number of votes: {voteCount}
+          </p>
         </div>
         :
-        <div className={styles.buttonWrapper}>
-          <button className={styles.button} onClick={() => vote(option)}>
+        <div className={styles['button-wrapper']}>
+          <button
+            className={styles.button}
+            onClick={() => vote(option)}
+          >
             VOTE
           </button>
         </div>
       }
       {userVoted && (
-        <p className={styles.yourVote}>
+        <p className={styles['your-vote']}>
           You Voted!
         </p>
       )}

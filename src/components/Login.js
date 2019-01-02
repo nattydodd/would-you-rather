@@ -36,13 +36,19 @@ class Login extends Component {
           Login
         </h1>
         <form className={styles.form}
-          onSubmit={this.handleSubmit}>
-          <label htmlFor="user-select">Choose a user:</label>
+          onSubmit={this.handleSubmit}
+        >
+          <label htmlFor="user-select">
+            Choose a user:
+          </label>
           <select
             id="user-select"
             className={styles.input}
-            onChange={this.handleSelectUser}>
-            <option value="">--Please choose an option--</option>
+            onChange={this.handleSelectUser}
+          >
+            <option value="">
+              --Please choose an option--
+            </option>
             {this.props.users && Object.keys(this.props.users).map(user => (
               <option
                 key={this.props.users[user].id}
@@ -53,10 +59,11 @@ class Login extends Component {
             ))}
           </select>
           <button className={styles.button}
-            type='submit'>
+            type='submit'
+          >
             Login
           </button>
-          <div>
+          <div className={styles.error}>
             {this.state.error}
           </div>
         </form>

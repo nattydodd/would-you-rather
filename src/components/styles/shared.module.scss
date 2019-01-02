@@ -5,30 +5,28 @@ $background-light: #f6f6f6;
 $font-primary: #484848;
 $border: #b5b5b5;
 $highlight: #ffb733;
+$error: #cb2f07;
 
-@mixin h1() {
+@mixin h1 {
   margin: 20px 0 5px;
 }
 
-@mixin h2() {
+@mixin h2 {
   margin: 10px 0;
   font-size: 18px;
   font-weight: 700;
 }
 
-@mixin h3() {
+@mixin h3 {
   font-weight: 400;
   margin: 5px 0 20px;
 }
 
-@mixin h4() {
+@mixin h4 {
   margin: 0 0 10px;
 }
 
-@mixin p() {
-}
-
-@mixin container() {
+@mixin container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,12 +34,13 @@ $highlight: #ffb733;
   min-height: 91vh;
 }
 
-@mixin button() {
+@mixin button {
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
   background: $primary;
   color: white;
+  font-size: 14px;
 
   cursor: pointer;
 

@@ -1,4 +1,4 @@
-@import './shared.module';
+@import "./shared.module";
 
 .container {
   @include container;
@@ -18,7 +18,7 @@
   margin: 0 auto;
 }
 
-.tableHeadRow {
+.table-head-row {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -28,21 +28,22 @@
   color: $font-primary;
 }
 
-.tableBody {
+.table-body {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 30px 0 10px;
 }
 
-.tableHeadTitle {
+.table-head-title {
   cursor: pointer;
+
   &:hover {
     color: $primary;
   }
 }
 
-.tableHeadTitleActive {
+.table-head-title-active {
   cursor: pointer;
   color: $primary;
 }

@@ -1,4 +1,4 @@
-@import './shared.module';
+@import "./shared.module";
 
 .container {
   @include container;
@@ -18,18 +18,18 @@
   color: $primary;
 }
 
-.userData {
+.user-data {
   display: flex;
   min-width: 250px;
 }
 
-.userImage {
+.user-image {
   height: 40px;
   width: auto;
   margin: 0 10px 0 0;
 }
 
-.userName {
+.user-name {
   width: 100%;
 }
 
@@ -37,7 +37,7 @@
   @include button;
 }
 
-.buttonWrapper {
+.button-wrapper {
   display: flex;
   justify-content: center;
 }
@@ -46,7 +46,7 @@
   position: relative;
 }
 
-.yourVote {
+.your-vote {
   padding: 5px;
   margin: 0;
   font-size: 12px;

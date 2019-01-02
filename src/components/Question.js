@@ -27,11 +27,14 @@ class Question extends Component {
       )
     }
 
-    const totalVotes = currentQuestion.optionOne.votes.length + currentQuestion.optionTwo.votes.length
+    const totalVotes = currentQuestion.optionOne.votes.length +
+      currentQuestion.optionTwo.votes.length
 
     return (
       <div className={styles.container}>
-        <h1 className={styles.title}>Would You Rather...</h1>
+        <h1 className={styles.title}>
+          Would You Rather...
+        </h1>
         <ol className={styles.list}>
           {['optionOne', 'optionTwo'].map(option =>
             <AnswerOption
@@ -52,9 +55,14 @@ class Question extends Component {
             />
           )}
         </ol>
-        <div className={styles.userData}>
-          <img className={styles.userImage} alt="User Avatar" src={users[currentQuestion.author].avatarURL} />
-          <p className={styles.userName}>Posted By: {currentQuestion.author}</p>
+        <div className={styles['user-data']}>
+          <img className={styles['user-image']}
+            alt="User Avatar"
+            src={users[currentQuestion.author].avatarURL}
+          />
+          <p className={styles['user-name']}>
+            Posted By: {currentQuestion.author}
+          </p>
         </div>
       </div>
     )

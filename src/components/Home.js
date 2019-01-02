@@ -10,7 +10,9 @@ class Home extends Component {
   }
 
   getAnsweredPolls() {
-    const pollsArray = Object.keys(this.props.questions).map(key => this.props.questions[key])
+    const pollsArray = Object.keys(this.props.questions)
+      .map(key => this.props.questions[key])
+
     return pollsArray.filter(poll =>
       poll.optionOne.votes.includes(this.props.authedUser) ||
       poll.optionTwo.votes.includes(this.props.authedUser)
@@ -18,7 +20,9 @@ class Home extends Component {
   }
 
   getUnansweredPolls() {
-    const pollsArray = Object.keys(this.props.questions).map(key => this.props.questions[key])
+    const pollsArray = Object.keys(this.props.questions)
+      .map(key => this.props.questions[key])
+
     return pollsArray.filter(poll =>
       !poll.optionOne.votes.includes(this.props.authedUser) &&
       !poll.optionTwo.votes.includes(this.props.authedUser)
@@ -30,19 +34,29 @@ class Home extends Component {
     const { showAnswered } = this.state;
     return (
       <div className={styles.container}>
-        <h1 className={styles.title}>Home</h1>
-        <h3 className={styles.name}>Logged in as: {users[authedUser].name}</h3>
+        <h1 className={styles.title}>
+          Home
+        </h1>
+        <h3 className={styles.name}>
+          Logged in as: {users[authedUser].name}
+        </h3>
         <table className={styles.table}>
           <thead>
-            <tr className={styles.tableHeadRow}>
+            <tr className={styles['table-head-row']}>
               <th
                 onClick={() => this.setState({ showAnswered: false })}
-                className={showAnswered === true ? styles.tableHeadTitle : styles.tableHeadTitleActive}>
+                className={showAnswered === true ?
+                  styles['table-head-title'] :
+                  styles['table-head-title-active']}
+              >
                 Unanswered
               </th>
               <th
                 onClick={() => this.setState({ showAnswered: true })}
-                className={showAnswered === true ? styles.tableHeadTitleActive : styles.tableHeadTitle}>
+                className={showAnswered === true ?
+                  styles['table-head-title-active'] :
+                  styles['table-head-title']}
+              >
                 Answered
               </th>
             </tr>

@@ -1,4 +1,4 @@
-@import './shared.module';
+@import "./shared.module";
 
 .container {
   @include container;
@@ -17,10 +17,14 @@
 
 .input {
   @include input;
-
   cursor: pointer;
 }
 
 .button {
   @include button;
+}
+
+.error {
+  margin: 10px 0;
+  color: $error;
 }
