@@ -4,7 +4,7 @@ import styles from  './styles/Question.module.scss';
 const AnswerOption = (props) => {
   const { text, questionAnswered, votePercentage, userVoted, vote, option } = props;
   return (
-    <li>
+    <li className={styles.option}>
       <p>...{text}?</p>
       {questionAnswered ?
         <p className={styles.votes}>Votes: {votePercentage}%</p> :
@@ -14,9 +14,11 @@ const AnswerOption = (props) => {
           </button>
         </div>
       }
-      <p>
-        {userVoted && 'You Voted!'}
-      </p>
+      {userVoted && (
+        <p className={styles.yourVote}>
+          You Voted!
+        </p>
+      )}
     </li>
   )
 }

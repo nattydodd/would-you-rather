@@ -22,7 +22,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  background: $secondary;
+  background: $background-light;
   padding: 15px 0;
   border-radius: 8px 8px 0 0;
   color: $font-primary;
@@ -58,7 +58,7 @@
 
 .name {
   @include h3;
-  color: $primary;
+  color: $active;
 }
 
 .option {

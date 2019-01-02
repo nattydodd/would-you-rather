@@ -1,0 +1,23 @@
+@import './shared.module';
+
+.container {
+  @include container;
+  background: $background-light;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 20px 0;
+}
+
+.input {
+  @include input;
+
+  cursor: pointer;
+}
+
+.button {
+  @include button;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { saveQuestion } from '../actions/shared';
+import styles from './styles/Add.module.scss';
 
 class Add extends Component {
   state = {
@@ -40,22 +41,28 @@ class Add extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Would You Rather?</h1>
-        <form onSubmit={this.handleSubmit}>
+      <div className={styles.container}>
+        <h1 className={styles.title}>
+          Would You Rather?
+        </h1>
+        <form className={styles.form}
+          onSubmit={this.handleSubmit}>
           <label htmlFor="optionOne">Option 1</label>
           <input
             id="optionOne"
+            className={styles.input}
             value={this.state.optionOne}
             onChange={this.handleChange}
           />
           <label htmlFor="optionTwo">Option 2</label>
           <input
             id="optionTwo"
+            className={styles.input}
             value={this.state.optionTwo}
             onChange={this.handleChange}
           />
-          <button type='submit'>
+          <button className={styles.button}
+            type='submit'>
             Create Poll
           </button>
           <p>{this.state.error}</p>

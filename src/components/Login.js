@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { setAuthedUser } from '../actions/authedUser';
 import { connect } from 'react-redux';
+import styles from './styles/Login.module.scss';
 
 class Login extends Component {
 
@@ -30,13 +31,17 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.container}>
         <h1>
           Login
         </h1>
-        <form onSubmit={this.handleSubmit}>
+        <form className={styles.form}
+          onSubmit={this.handleSubmit}>
           <label htmlFor="user-select">Choose a user:</label>
-          <select id="user-select" onChange={this.handleSelectUser}>
+          <select
+            id="user-select"
+            className={styles.input}
+            onChange={this.handleSelectUser}>
             <option value="">--Please choose an option--</option>
             {this.props.users && Object.keys(this.props.users).map(user => (
               <option
@@ -47,7 +52,8 @@ class Login extends Component {
               </option>
             ))}
           </select>
-          <button type='submit'>
+          <button className={styles.button}
+            type='submit'>
             Login
           </button>
           <div>

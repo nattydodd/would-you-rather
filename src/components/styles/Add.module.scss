@@ -1,0 +1,25 @@
+@import './shared.module';
+
+.container {
+  @include container;
+  background: $background-light;
+}
+
+.title {
+  @include h1;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 20px 0;
+}
+
+.input {
+  @include input;
+}
+
+.button {
+  @include button;
+}

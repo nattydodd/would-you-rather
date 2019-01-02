@@ -21,7 +21,7 @@ class Question extends Component {
 
     if (!currentQuestion) {
       return (
-        <div>
+        <div className={styles.container}>
           404 NOT FOUND
         </div>
       )
